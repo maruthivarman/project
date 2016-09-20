@@ -4,4 +4,10 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <resource-ref>
+  <description>Primary database</description>
+  <res-ref-name>jdbc/primaryDB</res-ref-name>
+  <res-type>javax.sql.DataSource</res-type>
+  <res-auth>CONTAINER</res-auth>
+</resource-ref>
 </web-app>
