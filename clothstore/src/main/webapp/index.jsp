@@ -1,4 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -8,6 +8,11 @@
 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <title>YOURS CHOICE</title>
 <style>
+
+.container {
+    width: auto;
+}
+
 .dropbtn {
     background-color: #4CAF50;
     color: white;
@@ -64,10 +69,95 @@ object-fit: cover;
     background:#fff;
     width:100%;
 }
+.panel {
+    margin-bottom: -17px;
+    }
  .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
-      width: 70%;
-      margin: auto;
+      width: 100%;
+      height: 60%;
+      margin:0px 0px 0px 0px;
+}
+/* search */
+.search-form .form-group {
+  float: right !important;
+  transition: all 0.35s, border-radius 0s;
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+}
+.search-form .form-group input.form-control {
+  padding-right: 20px;
+  border: 0 none;
+ 
+  background: transparent;
+  box-shadow: none;
+  display:block;
+}
+.search-form .form-group input.form-control::-webkit-input-placeholder {
+  }
+.search-form .form-group input.form-control:-moz-placeholder {
+  /* Firefox 18- */
+  display: none;
+}
+.search-form .form-group input.form-control::-moz-placeholder {
+  /* Firefox 19+ */
+  display: none;
+}
+.search-form .form-group input.form-control:-ms-input-placeholder {
+  display: none;
+}
+.search-form .form-group:hover,
+.search-form .form-group.hover {
+  width: 40%;
+  border-radius: 4px 25px 25px 4px;
+}
+.search-form .form-group span.form-control-feedback {
+  position: absolute;
+  top: -1px;
+  right: -2px;
+  z-index: 2;
+  display: block;
+  width: 34px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  color: #3596e0;
+  left: initial;
+  font-size: 14px;
+}
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 6px;
+    margin-top: -64px;
+}
+/* button */
+.btn3d {
+    transition:all .08s linear;
+    position:relative;
+    outline:medium none;
+    -moz-outline-style:none;
+    border:0px;
+    margin-right:10px;
+    margin-top:1px;
+}
+.btn3d:focus {
+    outline:medium none;
+    -moz-outline-style:none;
+}
+.btn3d:active {
+    top:9px;
+}
+
+ .btn-success {
+    box-shadow:0 0 0 1px #5cb85c inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 #4cae4c, 0 8px 0 1px rgba(0,0,0,0.4), 0 8px 8px 1px rgba(0,0,0,0.5);
+    background-color:#5cb85c;
+}
+
 
 </style>
 </head>
@@ -78,12 +168,26 @@ Diwali offers coming soon.. Get updated
 </marquee>
 <div class="panel panel-info">
 <div class="panel-heading">Welcome to shopping world
-<div>
-<img src="<c:url value="/resources/logo.png"/>"  class="img-square" alt="Men Clothing" width="300" height="100">
-<img src="<c:url value="/resources/menclothing2.jpg"/>" class="img-circle" alt="Men Clothing">
-<img src="<c:url value="/resources/womencloth.jpg"/>" class="img-circle" alt="women Clothing" width="100" height="100">
-<img src="<c:url value="/resources/babycloth.jpg"/>" class="img-circle" alt="kids Clothing" width="100" height="100">
-<img src="<c:url value="/resources/fabrics.jpg"/>" class="img-circle" alt="fabrics Clothing" width="100" height="100">
+<div class="container">
+
+<img src="<c:url value="/resources/images/logo.png" />"  class="img-square" alt="logo" width="300" height="100"/>
+<img src="<c:url value="/resources/images/menclothing2.jpg" />" class="img-circle" alt="Men Clothing" width="100" height="100" />
+<img src="<c:url value="/resources/images/womencloth.jpg"/>" class="img-circle" alt="women Clothing" width="100" height="100" />
+<img src="<c:url value="/resources/images/babygirl.jpg"/>" class="img-circle" alt="kids Clothing" width="100" height="100" />
+<img src="<c:url value="/resources/images/fabrics.jpg"/>" class="img-circle" alt="fabrics Clothing" width="100" height="100" />
+
+   
+    <div class="row search-form">
+                <div class="form-group has-feedback">
+            		<label for="search" class="sr-only">Search</label>
+            		<input type="text" class="form-control" name="search" id="search" placeholder="search">
+              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
+            	</div>
+          
+        </div>
+  
+  
+
 <nav class="navbar navbar-default">
 <div class="container-fluid">
 <div class="navbar-header">
@@ -138,10 +242,40 @@ Diwali offers coming soon.. Get updated
     <a href="#">Mats and Carpets</a>
   </div>
 </div>
+
+<div class="dropdown">
+  <button class="dropbtn">product</button>
+  <div class="dropdown-content">
+    <a href="getproduct">Add</a>
+    <a href="viewproduct">View</a>
+    <a href="#">Edit</a>
+    <a href="#">Delete</a>
+  </div>
+</div>
+
+<div class="dropdown">
+  <button class="dropbtn">Category</button>
+  <div class="dropdown-content">
+    <a href="#">Add</a>
+    <a href="#">View</a>
+    <a href="#">Delete</a>
+  </div>
+</div>
+
+<div class="dropdown">
+  <button class="dropbtn">Supplier</button>
+  <div class="dropdown-content">
+    <a href="#">Add</a>
+    <a href="#">View</a>
+    <a href="#">Delete</a>
+  </div>
+</div>
 <ul class="nav navbar-nav navbar-right">
-<li style="float:right;"><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-<li style="float:right;"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-</ul>
+ <a href="<c:url value="/getlogin" />" ><button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-ok"></span>Login</button></a>
+ <a href="getsignup"><button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-download-alt"></span>Sign up</button></a>
+ <button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-cloud"></span> Cart</button>
+ </ul>
+
 </div>
 </nav>
 </div>
@@ -162,7 +296,7 @@ Diwali offers coming soon.. Get updated
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active">
-        <img src="<c:url value="/resources/menformalslide.jpg"/>" alt="formal" width="460" height="200">
+        <img src="<c:url value="/resources/images/menformalslide.jpg"/>" alt="formal" width="460" height="200">
         <div class="carousel-caption">
           <h3>MENS</h3>
           </div>
@@ -170,21 +304,21 @@ Diwali offers coming soon.. Get updated
      
 
       <div class="item">
-        <img src="<c:url value="/resources/Sarees.jpg"/>" alt="sarees" width="460" height="200">
+        <img src="<c:url value="/resources/images/Sarees.jpg"/>" alt="sarees" width="460" height="200">
         <div class="carousel-caption">
           <h3>WOMEN</h3>
       </div>
       </div>
     
       <div class="item">
-        <img src="<c:url value="/resources/kidsslide.jpg"/>" alt="kids" width="460" height="200">
+        <img src="<c:url value="/resources/images/kidsslide.jpg"/>" alt="kids" width="460" height="200">
         <div class="carousel-caption">
           <h3>KIDS</h3>
           </div>
       </div>
 
       <div class="item">
-        <img src="<c:url value="/resources/fabricsslide.jpg"/>" alt="fabrics" width="460" height="200">
+        <img src="<c:url value="/resources/images/fabricsslide.jpg"/>" alt="fabrics" width="460" height="200">
         <div class="carousel-caption">
           <h3>BED SHEETS</h3>
       </div>
