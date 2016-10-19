@@ -37,34 +37,35 @@ body {
 </head>
 <body>
 	<div class="container">
-		<form class="form-horizontal " role="form" action="newProduct">
+		<form class="form-horizontal " role="form" action="${product.productid==NULL?"newproduct":"../UpdateProduct"}" method="post">
 			<h2>Add Product form</h2>
-			<div class="form-group">
+			<h3>${message }</h3>
+			<div class="form-group"> 
 				<label for="product name" class="col-sm-3 control-label">Product Name</label>
 				<div class="col-sm-9">
 					<input type="text" id="productname" name="productname"  
-						class="form-control" autofocus>  
+						class="form-control" value="${product.productname }" autofocus>  
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="price" class="col-sm-3 control-label">price</label>
 				<div class="col-sm-9">
 					<input type="text" id="price" name="price" 
-						class="form-control"> 
+						class="form-control" value="${product.price }"> 
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="size" class="col-sm-3 control-label">size</label>
 				<div class="col-sm-9">
 					<input type="text" id="size" name="size" 
-						class="form-control"> 
+						class="form-control" value="${product.size }"> 
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="color" class="col-sm-3 control-label">color</label>
 				<div class="col-sm-9">
 					<input type="text" id="color" name="color"
-						 class="form-control" >
+						 class="form-control" value="${product.color }">
 				</div>
 			</div>
 			
@@ -72,7 +73,7 @@ body {
 				<label for="categoryid" class="col-sm-3 control-label">categoryid</label>
 				<div class="col-sm-9">
 					<input type="text" id="categoryid" name="categoryid"
-						 class="form-control" >
+						 class="form-control" value="${product.categoryid }" >
 				</div>
 			</div>
 			
@@ -80,7 +81,7 @@ body {
 				<label for="supplierid" class="col-sm-3 control-label">supplierid</label>
 				<div class="col-sm-9">
 					<input type="text" id="supplierid" name="supplierid"
-						 class="form-control" >
+						 class="form-control" value="${product.supplierid }" >
 				</div>
 			</div>
 			<!-- /.form-group -->
@@ -90,14 +91,14 @@ body {
 				<label for="description" class="col-sm-3 control-label">description</label>
 				<div class="col-sm-9">
 					<input type="text" id="description" name="description" 
-						class="form-control">
+						class="form-control" value="${product.description }">
 
 				</div>
 			</div>
  
 			<div class="form-group">
 				<div class="col-sm-9 col-sm-offset-3">
-					<button type="submit" class="btn btn-primary btn-block">ADD</button>
+					<button type="submit" class="btn btn-primary btn-block">${product.productid==NULL?"ADD":"Update"}</button>
 				</div>
 			</div>
 		</form>

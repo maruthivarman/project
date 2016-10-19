@@ -9,7 +9,7 @@
 <title>YOURS CHOICE</title>
 <style>
 
-.container {
+/* .container {
     width: auto;
 }
 
@@ -72,13 +72,14 @@ object-fit: cover;
 .panel {
     margin-bottom: -17px;
     }
- .carousel-inner > .item > img,
+ */
+  .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
       width: 100%;
       height: 60%;
       margin:0px 0px 0px 0px;
 }
-/* search */
+/* /* search */
 .search-form .form-group {
   float: right !important;
   transition: all 0.35s, border-radius 0s;
@@ -157,131 +158,17 @@ object-fit: cover;
     box-shadow:0 0 0 1px #5cb85c inset, 0 0 0 2px rgba(255,255,255,0.15) inset, 0 8px 0 0 #4cae4c, 0 8px 0 1px rgba(0,0,0,0.4), 0 8px 8px 1px rgba(0,0,0,0.5);
     background-color:#5cb85c;
 }
-
+ */
 
 </style>
 </head>
 <body>
-<div class="container">    
-<marquee style="font-family:Book Antiqua; color: red" bgcolor="skyblue"  >
-Diwali offers coming soon.. Get updated    
-</marquee>
-<div class="panel panel-info">
-<div class="panel-heading">Welcome to shopping world
-<div class="container">
 
-<img src="<c:url value="/resources/images/logo.png" />"  class="img-square" alt="logo" width="300" height="100"/>
-<img src="<c:url value="/resources/images/menclothing2.jpg" />" class="img-circle" alt="Men Clothing" width="100" height="100" />
-<img src="<c:url value="/resources/images/womencloth.jpg"/>" class="img-circle" alt="women Clothing" width="100" height="100" />
-<img src="<c:url value="/resources/images/babygirl.jpg"/>" class="img-circle" alt="kids Clothing" width="100" height="100" />
-<img src="<c:url value="/resources/images/fabrics.jpg"/>" class="img-circle" alt="fabrics Clothing" width="100" height="100" />
 
-   
-    <div class="row search-form">
-                <div class="form-group has-feedback">
-            		<label for="search" class="sr-only">Search</label>
-            		<input type="text" class="form-control" name="search" id="search" placeholder="search">
-              		<span class="glyphicon glyphicon-search form-control-feedback"></span>
-            	</div>
-          
-        </div>
-  
-  
+<jsp:include page="/WEB-INF/views/header.jsp" /> 
 
-<nav class="navbar navbar-default">
-<div class="container-fluid">
-<div class="navbar-header">
 
-<ul class="nav navbar-nav">
-</ul>
-<a class="navbar-brand" href="#">Yours choice</a>
-</div>
-<div class="dropdown">
-  <button class="dropbtn">ABOUT</button>
-  <div class="dropdown-content">
-    <a href="#">description</a>
-    <a href="#">Contact</a>
-   
-  </div>
-</div>
 
-<div class="dropdown">
-  <button class="dropbtn">MEN</button>
-  <div class="dropdown-content">
-    <a href="#">T-Shirts</a>
-    <a href="#">Formal Shirts</a>
-    <a href="#">Casual Shirts</a>
-    <a href="#">Jeans</a>
-    <a href="#">Track Pants</a>
-  </div>
-</div>
-
-<div class="dropdown">
-  <button class="dropbtn">WOMEN</button>
-  <div class="dropdown-content">
-    <a href="#">Sarees</a>
-    <a href="#">Kurtas</a>
-    <a href="#">Western Wears</a>
-    <a href="#">Coats and Blazers</a>
-  </div>
-</div>
-<div class="dropdown">
-  <button class="dropbtn">KIDS</button>
-  <div class="dropdown-content">
-    <a href="#">Baby Boy</a>
-    <a href="#">Baby Girl</a>
-    <a href="#">Boy's Casual</a>
-    <a href="#">Girl's Casual</a>
-  </div>
-</div>
-<div class="dropdown">
-  <button class="dropbtn">FABRICS</button>
-  <div class="dropdown-content">
-    <a href="#">Bed sheets</a>
-    <a href="#">Curtains</a>
-    <a href="#">Mats and Carpets</a>
-  </div>
-</div>
-
-<div class="dropdown">
-  <button class="dropbtn">product</button>
-  <div class="dropdown-content">
-    <a href="getproduct">Add</a>
-    <a href="viewproduct">View</a>
-    <a href="#">Edit</a>
-    <a href="#">Delete</a>
-  </div>
-</div>
-
-<div class="dropdown">
-  <button class="dropbtn">Category</button>
-  <div class="dropdown-content">
-    <a href="#">Add</a>
-    <a href="#">View</a>
-    <a href="#">Delete</a>
-  </div>
-</div>
-
-<div class="dropdown">
-  <button class="dropbtn">Supplier</button>
-  <div class="dropdown-content">
-    <a href="#">Add</a>
-    <a href="#">View</a>
-    <a href="#">Delete</a>
-  </div>
-</div>
-<ul class="nav navbar-nav navbar-right">
- <a href="<c:url value="/getlogin" />" ><button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-ok"></span>Login</button></a>
- <a href="getsignup"><button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-download-alt"></span>Sign up</button></a>
- <button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-cloud"></span> Cart</button>
- </ul>
-
-</div>
-</nav>
-</div>
-</div>
-</div>
-</div>
 <div class="container">
   <br>
   <div id="myCarousel" class="carousel slide" data-ride="carousel">

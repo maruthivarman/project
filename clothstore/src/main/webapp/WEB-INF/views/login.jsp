@@ -1,3 +1,4 @@
+<%@taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -84,6 +85,8 @@ $(function(){
 </head>
 <body>
 
+<jsp:include page="/WEB-INF/views/header.jsp" />
+
        <div class="container">
 
 <div class="row" style="margin-top:20px">
@@ -99,15 +102,16 @@ $(function(){
                     <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password">
 				</div>
 				
-				<hr class="colorgraph">
+				
 				<div class="row">
 					<div class="col-xs-6 col-sm-6 col-md-6">
-                        <input type="submit" class="btn btn-lg btn-success btn-block" value="Sign In">
+                        <input type="submit" class="btn btn-lg btn-info btn-block" value="Sign In">
 					</div>
 					<div class="col-xs-6 col-sm-6 col-md-6">
 						<a href="getsignup" class="btn btn-lg btn-primary btn-block">Register</a>
 					</div>
 				</div>
+				<hr class="colorgraph">
 			</fieldset>
 		</form>
 	</div>

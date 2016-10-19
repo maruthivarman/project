@@ -8,48 +8,37 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script type="text/javascript">
 	var app = angular.module('myApp',[]);
-	 app.controller("ProductController",function($scope,$http){
+	app.controller("CategoryController",function($scope,$http){
 		$scope.getdata = function(){
 			$http({
 				method : 'GET',
-				url : 'viewproductlist'
+				url : 'viewcategorylist'
 			}).success(function(data, status ,headers, config){
 				$scope.result = data;
-				/* alert("success"); */
+				alert("success");
 			}).error(function(data, status, headers, config){
-				/* alert("error"); */
+				alert("error");
 			});
 		}
-	}); 
+	});
 		
 		
-</script> 
+</script>
 </head>
 <body>
-<div ng-app="myApp" ng-controller="ProductController" ng-init="getdata()">
+<div ng-app="myApp" ng-controller="CategoryController" ng-init="getdata()">
 <table>
 <tr>
-<th>productid</th>
-<th>productname</th>
-<th>price</th>
-<th>size</th>
 <th>categoryid</th>
-<th>supplierid</th>
-<th>color</th>
+<th>categoryname</th>
 <th>description</th>
-<th colspan="2"> action</th>
 </tr>
 <tr ng-repeat="items in result">
-<th>{{items.productid}}</th>
-<th>{{items.productname}}</th>
-<th>{{items.price}}</th>
-<th>{{items.size}}</th>
 <th>{{items.categoryid}}</th>
-<th>{{items.supplierid}}</th>
-<th>{{items.color}}</th>
+<th>{{items.categoryname}}</th>
 <th>{{items.description}}</th>
-<th><a href="getproduct/{{items.productid}}">edit</a></th>
-<th><a href="deleteproduct/{{items.productid}}">delete</a></th>
+
+
 </tr>
 </table>
 
