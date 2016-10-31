@@ -48,7 +48,7 @@
 <th>{{items.supplierid}}</th>
 <th>{{items.color}}</th>
 <th>{{items.description}}</th>
-<th><a href="getproduct/{{items.productid}}">edit</a></th>
+<th><a href="editproduct/{{items.productid}}">edit</a></th>
 <th><a href="deleteproduct/{{items.productid}}">delete</a></th>
 </tr>
 </table>

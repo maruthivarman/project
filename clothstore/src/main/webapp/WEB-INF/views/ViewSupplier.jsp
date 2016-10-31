@@ -43,6 +43,8 @@
 <th>{{items.address}}</th>
 <th>{{items.emailid}}</th>
 <th>{{items.mobilenumber}}</th>
+<th><a href="#">edit</a></th>
+<th><a href="deletesupplier/{{items.supplierid}}">delete</a></th>
 </tr>
 </table>
 

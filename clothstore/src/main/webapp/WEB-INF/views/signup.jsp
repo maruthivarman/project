@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -14,8 +15,10 @@
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 	
+	
 <title>SIGN UP</title>
 
+<jsp:include page="/WEB-INF/views/header.jsp" />
 <style type="text/css">
 body {
 	background-color: #eee;
@@ -40,7 +43,7 @@ var app = angular.module('app', ['ngMessages']);
 </head>
 <body>
 
-<jsp:include page="/WEB-INF/views/header.jsp" />
+
 	<div class="container">
 		<form class="form-horizontal " role="form" action="newUser">
 			<h2>Registration Form</h2>
@@ -92,21 +95,21 @@ var app = angular.module('app', ['ngMessages']);
  <div class="form-group">
                     <label class="control-label col-sm-3">Gender</label>
                     <div class="col-sm-6">
-                        <div class="row">
-                            <div class="col-sm-4">
+                        
+                            <div class="col-sm-6">
                                 <label class="radio inline" for="gender-0">
       <input name="gender" id="gender-0" value="Male" checked="checked" type="radio">
       Male
     </label>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-6">
                                 <label class="radio inline" for="gender-1">
       <input name="gender" id="gender-1" value="Female" type="radio">
       Female
     </label>
                             </div>
                             
-                        </div>
+                       
                     </div>
                 </div>
 			<div class="form-group">

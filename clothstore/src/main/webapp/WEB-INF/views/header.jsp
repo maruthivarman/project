@@ -163,7 +163,7 @@ object-fit: cover;
 
 <div class="container">    
 <marquee style="font-family:Book Antiqua; color: red" bgcolor="skyblue"  >
-Diwali offers coming soon.. Get updated    
+Diwali offers 50% for purchase above Rs.5000/-   
 </marquee>
 <div class="panel panel-info">
 <div class="panel-heading">Welcome to shopping world
@@ -270,7 +270,7 @@ Diwali offers coming soon.. Get updated
 <ul class="nav navbar-nav navbar-right">
  <a href="<c:url value="/getlogin" />" ><button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-ok"></span>Login</button></a>
  <a href="getsignup"><button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-download-alt"></span>Sign up</button></a>
- <button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-cloud"></span> Cart</button>
+ <a href="/logout"><button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-cloud"></span> Logout</button></a>
  </ul>
 
 </div>

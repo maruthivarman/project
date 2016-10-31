@@ -37,7 +37,8 @@
 <th>{{items.categoryid}}</th>
 <th>{{items.categoryname}}</th>
 <th>{{items.description}}</th>
-
+<th><a href="#">edit</a></th>
+<th><a href="deletecategory/{{items.categoryid}}">delete</a></th>
 
 </tr>
 </table>

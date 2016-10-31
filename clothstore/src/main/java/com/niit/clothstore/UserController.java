@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -29,7 +30,7 @@ public class UserController {
 	
 	@RequestMapping("/getlogin") 
 	public String getlogin() {
-		System.out.println("inside get login");
+		//System.out.println("inside get login");
 		return "login";
 	}
 
@@ -52,7 +53,7 @@ public class UserController {
 		user.setGender(gender);*/
 		role.setRole("ROLE_USER");
 		role.setUser(user);
-		role.setEnabled("true");
+		role.setEnabled(true);
 		role.setRoleid(10);
 		role.setPassword(password);
 		role.setUsername(username);
@@ -62,4 +63,30 @@ public class UserController {
 		ModelAndView mv = new ModelAndView("login");
 		return mv;
 	}
+	
+	@RequestMapping(value = "/afterlogin")
+	public ModelAndView login(@RequestParam(value = "error", required = false) String error,
+		@RequestParam(value = "logout", required = false) String logout) {
+
+	  /*ModelAndView model = new ModelAndView();
+	  if (error != null) {
+		model.addObject("error", "Invalid username and password!");
+	  }
+
+	  if (logout != null) {
+		model.addObject("msg", "You've been logged out successfully.");
+	  }
+	  model.setViewName("login");*/
+	  System.out.println("inside security");
+	  return new ModelAndView("index1");
+
+	}
+	
+	@RequestMapping("getindex1")
+	public ModelAndView getindex1() {
+		ModelAndView mv = new ModelAndView("index1");
+		return mv;
+	}
+
+	
 }
