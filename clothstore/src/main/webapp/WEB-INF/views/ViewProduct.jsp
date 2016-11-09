@@ -27,14 +27,14 @@
 </head>
 <body>
 <div ng-app="myApp" ng-controller="ProductController" ng-init="getdata()">
-<table>
+<table class="table table-hover">
 <tr>
 <th>productid</th>
 <th>productname</th>
 <th>price</th>
 <th>size</th>
-<th>categoryid</th>
-<th>supplierid</th>
+<th>categoryname</th>
+<th>suppliername</th>
 <th>color</th>
 <th>description</th>
 <th colspan="2"> action</th>
@@ -44,8 +44,8 @@
 <th>{{items.productname}}</th>
 <th>{{items.price}}</th>
 <th>{{items.size}}</th>
-<th>{{items.categoryid}}</th>
-<th>{{items.supplierid}}</th>
+<th>{{items.categoryname}}</th>
+<th>{{items.suppliername}}</th>
 <th>{{items.color}}</th>
 <th>{{items.description}}</th>
 <th><a href="editproduct/{{items.productid}}">edit</a></th>

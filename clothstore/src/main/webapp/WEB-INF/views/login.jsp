@@ -29,24 +29,19 @@
 <div class="container">
 <div class="row" style="margin-top:20px">
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+    <h3><div style="color : red" class="error">${Productview}</div></h3>
      
      <c:if test="${not empty error}">
-			<div class="error">${error}</div>
+			<h3><div style="color : red" class="error">${error}</div></h3>
+			
 		</c:if>
-		<c:if test="${not empty msg}">
-			<div class="msg">${msg}</div>
+
+<h4><div>${message}</div></h4>
+
+<c:if test="${not empty logout}">
+			<h3><div style="color : green" class="msg">${logout}</div></h3>
 		</c:if>
-       
-		<%--  <form name='login' action="<c:url value="/login" />" method='POST'>
-		</form>
 		
-		<c:url value="/logout" var="logoutUrl" />
-<form id="logout" action="${logoutUrl}" method="post" >
-  <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
-</form>
-<c:if test="${pageContext.request.userPrincipal.name != null}">
-	 <a href="javascript:document.getElementById('logout').submit()">Logout</a> 
-</c:if>    --%>
 		
 		<form role="form" action="loginpage" method="post">
 			<fieldset>
@@ -71,6 +66,8 @@
 				<hr class="colorgraph">
 			
 			</fieldset>
+			<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+			
 		</form>
 	</div>
 	</div>

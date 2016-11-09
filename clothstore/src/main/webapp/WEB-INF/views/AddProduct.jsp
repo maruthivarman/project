@@ -1,3 +1,4 @@
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -37,7 +38,7 @@ body {
 </head>
 <body>
 	<div class="container">
-		<form class="form-horizontal " role="form" action="${product.productid==NULL?"newproduct":"../UpdateProduct"}" method="post">
+		<form class="form-horizontal " enctype="multipart/form-data" role="form" action="${product.productid==NULL?"newproduct":"../UpdateProduct"}" method="post">
 			<h2>Add Product form</h2>
 			<h3>${message }</h3>
 			<div class="form-group"> 
@@ -70,18 +71,31 @@ body {
 			</div>
 			
 			<div class="form-group">
-				<label for="categoryid" class="col-sm-3 control-label">categoryid</label>
+				<label for="categoryid" class="col-sm-3 control-label">categoryname</label>
 				<div class="col-sm-9">
-					<input type="text" id="categoryid" name="categoryid"
-						 class="form-control" value="${product.categoryid }" >
+					<select style="width: 100%;" class="form-control" name="categoryname">
+			
+			<option>Select Category</option>
+			<c:forEach items="${categoryList}" var="category">					
+			<option value="${category.categoryname}">${category.categoryname}</option>			
+			</c:forEach>
+			
+			</select>	
 				</div>
 			</div>
 			
 			<div class="form-group">
-				<label for="supplierid" class="col-sm-3 control-label">supplierid</label>
+				<label for="supplierid" class="col-sm-3 control-label">suppliername</label>
 				<div class="col-sm-9">
-					<input type="text" id="supplierid" name="supplierid"
-						 class="form-control" value="${product.supplierid }" >
+					<select style="width: 100%;" class="form-control" name="suppliername">
+			
+			<option>Select Supplier</option>
+			<c:forEach items="${supplierList}" var="supplier">					
+			<option value="${supplier.suppliername}">${supplier.suppliername}</option>			
+			</c:forEach>
+			
+			</select>			
+
 				</div>
 			</div>
 			<!-- /.form-group -->
@@ -95,6 +109,17 @@ body {
 
 				</div>
 			</div>
+			<div class="form-group">
+				<label for="file" class="col-sm-3 control-label">File to upload</label>
+				<div class="col-sm-9">
+					<input type="file" id="file" name="file" 
+						class="form-control">
+
+				</div>
+			</div>
+
+
+			
  
 			<div class="form-group">
 				<div class="col-sm-9 col-sm-offset-3">

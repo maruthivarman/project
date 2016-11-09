@@ -38,7 +38,7 @@ body {
 <body>
 	<div class="container">
 		<form class="form-horizontal " role="form" action="newSupplier">
-			<h2>Add Product form</h2>
+			<h2>Add Supplier form</h2>
 			<div class="form-group">
 				<label for="suppliername" class="col-sm-3 control-label">Supplier Name</label>
 				<div class="col-sm-9">

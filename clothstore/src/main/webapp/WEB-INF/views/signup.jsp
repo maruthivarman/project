@@ -1,4 +1,4 @@
-<%@taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -38,30 +38,116 @@ body {
 }
 </style>
 <script type="text/javascript">
-var app = angular.module('app', ['ngMessages']);
+function formRegister() {
+	// Make quick references to our fields
+	var username = document.getElementById('username');
+	var emailid = document.getElementById('emailid');
+	var password = document.getElementById('password');
+	var mobilenumber = document.getElementById('mobilenumber');
+	var address = document.getElementById('address');
+
+	
+	// Check each input in the order that it appears in the form!
+	if (notEmpty(username, "Username Should not be empty")) {
+    if (isAlphabet(username, "Please enter only letters for Fsername")){
+    if (notEmpty(emailid,
+		"EmailId Should not be empty")) {
+	if (notEmpty(password,
+	   "password Should not be empty")) {
+	if (isAlphanumeric(password,
+		"Numbers and Letters Only for Passwords")) {
+	if (notEmpty(mobilenumber,
+		"PhoneNumber Should not be empty")) {
+	if (isNumeric(mobilenumber,
+		"Please enter only number for PhoneNumber")) {
+	if (notEmpty(address,
+		"Address Should not be empty")) {
+		return true;
+	}	
+	}
+	}
+	}	
+	}
+	}
+	}
+	}
+	return false;
+}	
+	
+	function notEmpty(elem, helperMsg) {
+		if (elem.value.length == 0) {
+			alert(helperMsg);
+			elem.focus(); // set the focus to this input
+			return false;
+		}
+		return true;
+	}
+
+	function isNumeric(elem, helperMsg) {
+		var numericExpression = /^[0-9]+$/;
+		if (elem.value.match(numericExpression)) {
+			return true;
+		} else {
+			alert(helperMsg);
+			elem.focus();
+			return false;
+		}
+	}
+
+	function isAlphabet(elem, helperMsg) {
+		var alphaExp = /^[a-z A-Z]+$/;
+		if (elem.value.match(alphaExp)) {
+			return true;
+		} else {
+			alert(helperMsg);
+			elem.focus();
+			return false;
+		}
+	}
+
+	function isAlphanumeric(elem, helperMsg) {
+		var alphaExp = /^[0-9a-zA-Z]+$/;
+		if (elem.value.match(alphaExp)) {
+			return true;
+		} else {
+			alert(helperMsg);
+			elem.focus();
+			return false;
+		}
+	}
+
+	function emailValidator(elem, helperMsg) {
+		var emailExp = /^[\w\-\.\+]+\@[a-zA-Z0-9\.\-]+\.[a-zA-z0-9]{2,4}$/;
+		if (elem.value.match(emailExp)) {
+			return true;
+		} else {
+			alert(helperMsg);
+			elem.focus();
+			return false;
+		}
+		
+	}
+
 </script>
 </head>
 <body>
-
-
-	<div class="container">
-		<form class="form-horizontal " role="form" action="newUser">
+<div class="container" >
+		<form class="form-horizontal"  method="post" action="newUser" onsubmit="return formRegister()" role="form" >
 			<h2>Registration Form</h2>
 			<div class="form-group">
 				<label for="username" class="col-sm-3 control-label">User
 					Name</label>
 				<div class="col-sm-9">
-					<input type="text" id="username" name="username"  ng-model="firstName" required placeholder="User Name"
-						class="form-control" autofocus>  <div ng-messages="exampleForm.userFirstName.$error">
-      <div ng-message="required">This field is required</div>
-    </div>
+					<input type="text" id="username" name="username"   placeholder="User Name"
+						class="form-control" autofocus>  
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="email" class="col-sm-3 control-label">Email</label>
 				<div class="col-sm-9">
-					<input type="email" id="emailid" name="emailid" placeholder="Email"
-						class="form-control"> <span class="help-block">abc@gmail.com</span>
+					<input type="email" id="emailid" name="emailid"  placeholder="Email"
+						class="form-control">
+						
 				</div>
 			</div>
 			<div class="form-group">
@@ -76,8 +162,9 @@ var app = angular.module('app', ['ngMessages']);
 				<label for="mobile number" class="col-sm-3 control-label">Mobile
 					Number</label>
 				<div class="col-sm-9">
-					<input type="text" id="mobile number" name="mobile_number"
-						placeholder="Enter your mobile number" class="form-control" >
+					<input type="text" id="mobilenumber" name="mobile_number" 
+					placeholder="Enter your mobile number" class="form-control" >
+					
 				</div>
 			</div>
 			
@@ -87,8 +174,10 @@ var app = angular.module('app', ['ngMessages']);
 				<div class="form-group">
 				<label for="address" class="col-sm-3 control-label">Address</label>
 				<div class="col-sm-9">
-					<input type="text" id="address" name="address" placeholder="Your address"
+					<input type="text" id="address" name="address"  
+					placeholder="Your address"
 						class="form-control">
+		
 
 				</div>
 			</div>
@@ -114,7 +203,7 @@ var app = angular.module('app', ['ngMessages']);
                 </div>
 			<div class="form-group">
 				<div class="col-sm-9 col-sm-offset-3">
-					<button type="submit" class="btn btn-primary btn-block">Register</button>
+					<input type="submit" name="submit" class="btn btn-primary btn-block" value="Register">
 				</div>
 			</div>
 		</form>
@@ -122,4 +211,5 @@ var app = angular.module('app', ['ngMessages']);
 	</div>
 	<!-- ./container -->
 </body>
+
 </html>

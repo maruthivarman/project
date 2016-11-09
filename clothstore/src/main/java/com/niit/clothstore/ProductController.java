@@ -12,8 +12,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
+import com.niit.model.Category;
 import com.niit.model.Product;
+import com.niit.model.Supplier;
+import com.niit.service.CategoryDAO;
 import com.niit.service.ProductDAO;
+import com.niit.service.SupplierDAO;
 @Controller
 public class ProductController {
 	
@@ -23,12 +27,23 @@ public class ProductController {
 	@Autowired
 	private ProductDAO productDAO;
 	
+	@Autowired
+	private CategoryDAO categoryDAO;
 	
+	@Autowired
+	private SupplierDAO supplierDAO;
 	
 @RequestMapping("/getproduct")
- public String getproduct()
+ public ModelAndView  getproduct()
  {
-	return "AddProduct";
+	List<Category> categoryList = categoryDAO.getAllCategory();
+	List<Supplier> supplierList = supplierDAO.getAllSuppliers();
+	
+	ModelAndView mv=new ModelAndView("AddProduct");
+	mv.addObject("categoryList", categoryList);
+	mv.addObject("supplierList", supplierList);
+
+	return mv;
  }
 @RequestMapping("/getproduct/{id}")
 public ModelAndView editproduct(@PathVariable("id") int id)

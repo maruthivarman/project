@@ -1,10 +1,15 @@
-<%@taglib uri="http://java.sun.com/jstl/core" prefix="c" %>
+<%@ taglib uri='http://java.sun.com/jsp/jstl/core' prefix='c'%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="<c:url value="/resources/js/CartController.js" />"></script>
 <title>Insert title here</title>
 <style type="text/css">
 .container {
@@ -73,8 +78,13 @@ object-fit: cover;
  .carousel-inner > .item > img,
   .carousel-inner > .item > a > img {
       width: 100%;
-      height: 60%;
+      /*height: 50%;*/
       margin:0px 0px 0px 0px;
+}
+.car-img
+{
+width: 1340px !important;
+    height: 250px !important;
 }
 /* search */
 .search-form .form-group {
@@ -166,7 +176,7 @@ object-fit: cover;
 Diwali offers 50% for purchase above Rs.5000/-   
 </marquee>
 <div class="panel panel-info">
-<div class="panel-heading">Welcome to shopping world
+<div class="panel-heading"><b>Hello ${pageContext.request.userPrincipal.name}</b>
 <div class="container">
 <div>
 <img src="<c:url value="/resources/images/logo.png" />"  class="img-square" alt="logo" width="300" height="100"/>
@@ -193,9 +203,11 @@ Diwali offers 50% for purchase above Rs.5000/-
 
 <ul class="nav navbar-nav">
 </ul>
-<a class="navbar-brand" href="#">Yours choice</a>
+<a class="navbar-brand" href="home">Yours choice ${pageContext.request.userPrincipal.name} </a>
 </div>
+
 <div class="dropdown">
+
   <button class="dropbtn">ABOUT</button>
   <div class="dropdown-content">
     <a href="#">description</a>
@@ -203,7 +215,7 @@ Diwali offers 50% for purchase above Rs.5000/-
    
   </div>
 </div>
-
+<c:if test="${pageContext.request.userPrincipal.name!='maruthi' }">
 <div class="dropdown">
   <button class="dropbtn">MEN</button>
   <div class="dropdown-content">
@@ -241,6 +253,8 @@ Diwali offers 50% for purchase above Rs.5000/-
     <a href="#">Mats and Carpets</a>
   </div>
 </div>
+</c:if>
+<c:if test="${name=='maruthi' }">
 
 <div class="dropdown">
   <button class="dropbtn">product</button>
@@ -267,11 +281,31 @@ Diwali offers 50% for purchase above Rs.5000/-
   
   </div>
 </div>
+</c:if>
 <ul class="nav navbar-nav navbar-right">
+<c:if test="${name == null }">
  <a href="<c:url value="/getlogin" />" ><button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-ok"></span>Login</button></a>
  <a href="getsignup"><button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-download-alt"></span>Sign up</button></a>
- <a href="/logout"><button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-cloud"></span> Logout</button></a>
- </ul>
+ </c:if>
+
+<c:url value="logout" var="logoutUrl" />
+<form id="logout" action="${logoutUrl}" method="post" >
+<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+</form>
+
+<c:if test="${pageContext.request.userPrincipal.name !='maruthi' && name!=null}">
+<a href="viewcart"><button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-cloud"></span>Cart</button></a>
+</c:if>
+
+
+
+<c:if test="${pageContext.request.userPrincipal.name != null}">
+	 
+<a href="logout"><button type="button" class="btn btn-success btn-lg btn3d"><span class="glyphicon glyphicon-cloud"></span>Logout</button></a>
+</c:if> 
+
+</ul>
+ 
 
 </div>
 </nav>
@@ -280,5 +314,3 @@ Diwali offers 50% for purchase above Rs.5000/-
 </div>
 </div>
 
-</body>
-</html>
