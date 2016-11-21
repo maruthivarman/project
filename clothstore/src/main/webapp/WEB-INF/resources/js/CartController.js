@@ -18,6 +18,20 @@ cartApp.controller("addToCartCtrl", function ($scope, $http){
 	             alert("Item added to the cart!")
 	         });
 	    }
-	
-	 
+	    
+	    $scope.removeItemFromCart=function(cartid){
+	    	$http.delete('http://localhost:8080/clothstore/removeItemFromCart/' +cartid).success(function(){
+	    		alert("Item removed from cart")
+	    		$scope.refreshCartItems();
+	    	});
+	    }
+	 $scope.GrandTotalOfItems = function () {
+		 var grandTotal=0;
+		 
+		 for (var i=0; i<$scope.cart.length; i++){
+			 grandTotal+=$scope.cart[i].price;
+			 console.log(grandTotal);
+		 }
+		 return grandTotal;
+	 };
 });

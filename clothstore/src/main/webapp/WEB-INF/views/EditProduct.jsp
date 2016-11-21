@@ -38,35 +38,40 @@ body {
 </head>
 <body>
 	<div class="container">
-		<form class="form-horizontal " enctype="multipart/form-data" role="form" action="newproduct" method="post">
-			<h2>Add Product form</h2>
+		<form class="form-horizontal " enctype="multipart/form-data" role="form" action="../UpdateProduct" method="post">
+			<h2>Edit Product form</h2>
 			<h3>${message }</h3>
+			
+			<input type="hidden" id="productid" name="productid"  
+						class="form-control" value="${product.productid }"> 
+			
+			
 			<div class="form-group"> 
 				<label for="product name" class="col-sm-3 control-label">Product Name</label>
 				<div class="col-sm-9">
 					<input type="text" id="productname" name="productname"  
-						class="form-control"  autofocus>  
+						class="form-control" value="${product.productname }" autofocus>  
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="price" class="col-sm-3 control-label">price</label>
 				<div class="col-sm-9">
 					<input type="text" id="price" name="price" 
-						class="form-control" > 
+						class="form-control" value="${product.price }"> 
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="size" class="col-sm-3 control-label">size</label>
 				<div class="col-sm-9">
 					<input type="text" id="size" name="size" 
-						class="form-control" > 
+						class="form-control" value="${product.size }"> 
 				</div>
 			</div>
 			<div class="form-group">
 				<label for="color" class="col-sm-3 control-label">color</label>
 				<div class="col-sm-9">
 					<input type="text" id="color" name="color"
-						 class="form-control" >
+						 class="form-control" value="${product.color }">
 				</div>
 			</div>
 			
@@ -105,7 +110,7 @@ body {
 				<label for="description" class="col-sm-3 control-label">description</label>
 				<div class="col-sm-9">
 					<input type="text" id="description" name="description" 
-						class="form-control" >
+						class="form-control" value="${product.description }">
 
 				</div>
 			</div>
@@ -123,7 +128,7 @@ body {
  
 			<div class="form-group">
 				<div class="col-sm-9 col-sm-offset-3">
-					<button type="submit" class="btn btn-primary btn-block">ADD</button>
+					<button type="submit" class="btn btn-primary btn-block">Update</button>
 				</div>
 			</div>
 		</form>

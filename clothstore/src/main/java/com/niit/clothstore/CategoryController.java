@@ -4,14 +4,17 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 import com.niit.model.Category;
+import com.niit.model.Product;
 import com.niit.service.CategoryDAO;
 
 @Controller
@@ -61,5 +64,29 @@ public class CategoryController {
 		System.out.print(result);
 		return result;
 	}
+	
+	
+	@RequestMapping(value="editcategory/{id}")
+	public ModelAndView editcategory(@PathVariable("id") int id, Model model){
+		category = categoryDAO.getCategory(id);
+		//model.
+		model.addAttribute("category", category);
+		return new ModelAndView("EditCategory");
+	}
+
+	
+	@RequestMapping(value="UpdateCategory", method=RequestMethod.POST)
+	 public ModelAndView updateproduct(@ModelAttribute Category category)
+	 {
+		System.out.println(category.getCategoryid());
+		System.out.println(category.getCategoryname());
+		System.out.println(category.getDescription());
+		categoryDAO.updateCategory(category);
+		ModelAndView mv = new ModelAndView("ViewCategory");
+		
+		//mv.addObject("added successfully",message);
+		return mv;
+		
+	 }
 
 }

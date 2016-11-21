@@ -52,7 +52,6 @@
 <th><a href="deleteproduct/{{items.productid}}">delete</a></th>
 </tr>
 </table>
-
- </div>
+</div>
 </body>
 </html>

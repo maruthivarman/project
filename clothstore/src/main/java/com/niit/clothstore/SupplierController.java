@@ -4,13 +4,16 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
+import com.niit.model.Category;
 import com.niit.model.Supplier;
 import com.niit.service.SupplierDAO;
 @Controller
@@ -60,6 +63,29 @@ public @ResponseBody String viewsuppliers()
 	System.out.print(result);
 	return result;
 }
+
+@RequestMapping(value="editsupplier/{id}")
+public ModelAndView editsupplier(@PathVariable("id") int id, Model model){
+	supplier = supplierDAO.getSupplier(id);
+	//model.
+	model.addAttribute("supplier", supplier);
+	return new ModelAndView("EditSupplier");
+}
+
+
+@RequestMapping(value="UpdateSupplier", method=RequestMethod.POST)
+ public ModelAndView updatesupplier(@ModelAttribute Supplier supplier)
+ {
+	System.out.println(supplier.getSupplierid());
+	System.out.println(supplier.getSuppliername());
+	
+	supplierDAO.updateSupplier(supplier);
+	ModelAndView mv = new ModelAndView("ViewSupplier");
+	
+	//mv.addObject("added successfully",message);
+	return mv;
+	
+ }
 
 
 }

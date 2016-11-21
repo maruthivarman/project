@@ -1,7 +1,7 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <jsp:include page="/WEB-INF/views/header.jsp" />
-
+<h1>${username }</h1>
 <body ng-app="addToCartApp" ng-controller="addToCartCtrl" ng-init="retrieveCart('${pageContext.request.userPrincipal.name}')">
  <table class="table table-bordered table-striped fs13" >
 		  <thead>
@@ -9,7 +9,7 @@
 				
 				<th>Image</th>
 				<th class="width110">Product</th>
-				<th >Unit Price</th>
+				
 				<th>Quantity</th>
 				<th>Price(in Rs.)</th>
 				<th>Action</th>
@@ -17,13 +17,13 @@
 			</thead>
 			<tbody>
 				<tr ng-repeat = "items in cart">
-					 	<td class="span1"><img src="<c:url value="/resources/productimages/{{items.item.itemId}}.jpg" /> " alt="productimages"/></td> 
+					 	<td class="span1"><img src="<c:url value="/resources/ProductImage/{{items.productid}}.jpg" /> " alt="{{items.productid}}" width="40" height="45"/></td> 
 					 	 
-						<td>{{items.username}}</td>
-						<td>{{items.productid}}</td>
+						<td>{{items.productname}}</td>
+						
 						<td>{{items.quantity}}</td>
 						<td>{{items.price}}</td>
-						<td><a href="#" class="btn btn-danger btnAction" ng-click="removeItemFromCart(items.item.itemId)">
+						<td><a href="#" class="btn btn-danger btnAction" ng-click="removeItemFromCart(items.cartid)">
 							<span class="glyphicon glyphicon-trash"></span>remove</a></td>
 					</tr>
 			  <tr>
@@ -55,6 +55,7 @@
                         
                
                 </div>	
+                
                   
 </body>
 </html>
